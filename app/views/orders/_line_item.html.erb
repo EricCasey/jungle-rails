@@ -8,7 +8,9 @@
 
 <p class="description">  <%= line_item.product.description %></p>
 
-<p class="quantity"><%= line_item.product.quantity %> In Stock!</p>
+<p class="stock"><%= line_item.product.quantity %> In Stock!</p>
 
-<p class="cost">Cost: <%= number_to_currency(line_item.product.price_cents) %>
+<p class="cost">Cost: <%= number_to_currency(line_item.total_price_cents) %>
 </p>
+
+<p class="quantity"><%= line_item.quantity %> Ordred! &nbsp;&nbsp;&nbsp;</p>

@@ -7,9 +7,11 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
+    user = User.find(session[:user_id])
 
     if order.valid?
       empty_cart!
+      UserMailer.receipt_email(order, user).deliver_now
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, error: order.errors.full_messages.first
@@ -53,6 +55,7 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+
     order
   end
 

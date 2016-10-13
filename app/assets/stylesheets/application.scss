@@ -31,10 +31,14 @@ body {
       border-radius: 5px;
       margin: 5px;
     }
-    .quantity {
+    .stock {
       font-size: 80%;
       float: left;
       margin-left: 8px;
+    }
+    .quantity {
+      font-size: 90%;
+      float: right;
     }
     .cost {
       font-size: 90%;

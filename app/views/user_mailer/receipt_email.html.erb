@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for your order, <%= @user.name %></h1>
+    <p>
+      You have successfully ordered:
+        <%= @order %>
+
+        <% @order.line_items.each do |line_item| %>
+           <%= render partial: 'orders/line_item', locals: {line_item: line_item} %>
+         </div>
+        <%end %>
+
+      your username is: <%= @user.email %>.<br>
+      <h3>total: <%= number_to_currency(@order.line_items.sum(:item_price_cents)) %></h3>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for ordering and have a great day!</p>
+  </body>
+</html>

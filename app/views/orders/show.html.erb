@@ -19,7 +19,7 @@
 
   <%= @order.email %>'s
 
-  Total: <%= number_to_currency(@order.line_items.sum(:item_price_cents)) %><h3>
+  total: <%= number_to_currency(@order.line_items.sum(:item_price_cents)) %><h3>
 </div>
 
 <div>
