@@ -6,8 +6,14 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
-    <div class="order-item"> <%= @order.line_items.product[0] %> </div>
+
+    <% @order.line_items.product do |item| %>
+       <%= render partial: 'orders/line_item', locals: {item: @item} %>
+       <%= puts item %>
+    <%end %>
+
   </div>
+
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
