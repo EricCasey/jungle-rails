@@ -9,4 +9,40 @@
 // Global
 body {
   padding-top: 70px;
+  div.line_item {
+    background: white;
+    border: black solid 2px;
+    border-radius: 3px;
+    min-height: 115px;
+    overflow: hidden;
+    .name {
+      margin-left: 5px;
+    }
+    .description {
+      font-size: 70%;
+      margin-left: 8px;
+    }
+    .image {
+      width: 100px;
+      height: 100px;
+      float:right;
+      position: relative;
+      border: solid black 1px;
+      border-radius: 5px;
+      margin: 5px;
+    }
+    .quantity {
+      font-size: 80%;
+      float: left;
+      margin-left: 8px;
+    }
+    .cost {
+      font-size: 90%;
+      float: right;
+    }
+  }
+  #totalprice {
+    color: red;
+    float:right;
+  }
 }

@@ -7,14 +7,23 @@
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
 
-    <% @order.line_items.product do |item| %>
-       <%= render partial: 'orders/line_item', locals: {item: @item} %>
-       <%= puts item %>
+    <% @order.line_items.each do |line_item| %>
+       <%= render partial: 'orders/line_item', locals: {line_item: line_item} %>
+     </div>
     <%end %>
-
   </div>
 
+<div id="totalprice">
+<h3>
 
+
+  <%= @order.email %>'s
+
+  Total: <%= number_to_currency(@order.line_items.sum(:item_price_cents)) %><h3>
+</div>
+
+<div>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+</div>
 
 </section>

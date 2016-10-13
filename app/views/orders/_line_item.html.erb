@@ -1,4 +1,14 @@
+<div class="line_item">
 
+<img class="image" src=<%= line_item.product.image %> />
 
+<h4 class="name">
+  <%= line_item.product.name %>
+</h4>
 
-<div> <%= @order.line_items.product %> <div>
+<p class="description">  <%= line_item.product.description %></p>
+
+<p class="quantity"><%= line_item.product.quantity %> In Stock!</p>
+
+<p class="cost">Cost: <%= number_to_currency(line_item.product.price_cents) %>
+</p>
