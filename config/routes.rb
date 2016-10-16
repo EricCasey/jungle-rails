@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show] do
     put     :add_product
     delete  :remove_product
+    resources :reviews, only: [:create] do
+    end
   end
 
   resources :users, only: [:index, :show] do

@@ -129,5 +129,39 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+Review.create!({
+  product_id:  1,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 4
+})
 
-puts "DONE!"
+Review.create!({
+  product_id:  2,
+  user_id: 2,
+  description: Faker::Hipster.paragraph(4),
+  rating: 5
+})
+
+Review.create!({
+  product_id:  3,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 2
+})
+
+Review.create!({
+  product_id:  4,
+  user_id: 3,
+  description: Faker::Hipster.paragraph(4),
+  rating: 4
+})
+
+Review.create!({
+  product_id:  3,
+  user_id: 2,
+  description: Faker::Hipster.paragraph(4),
+  rating: 2
+})
+
+puts "[SEEDS.rb] MY WORK HERE IS DONE!"

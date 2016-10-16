@@ -65,9 +65,7 @@ main section.categories-show {
         font-size: 0.8em;
       }
       &:hover {
-
         border-color: #999;
-
         footer {
           opacity: 1.0;
         }
@@ -83,4 +81,10 @@ main section.products-show {
       max-width: 100%;
     }
   }
+}
+
+article.review {
+  border: solid black 2px;
+  border-radius: 5px;
+  margin: 2px;
 }
