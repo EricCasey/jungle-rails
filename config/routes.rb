@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
+
   resources :products, only: [:index, :show] do
     put     :add_product
     delete  :remove_product
-    resources :reviews, only: [:create] do
+    resources :reviews, only: [:create, :destroy] do
+      delete :remove_review
     end
   end
 

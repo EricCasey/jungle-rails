@@ -18,10 +18,13 @@ def create
   end
 end
 
-# def destroy
-#   @review = Review.find params[:id]
-#   @review.destroy
-#   redirect_to @url
-# end
+def destroy
+  @review = Review.find params[:id]
+  @review.destroy
+  # redirect_to product_review_remove_review_path
+  redirect_to product_path(params[:product_id]), notice: 'Review gone!'
+  # @url = "/products/#{params['product_id']}"
+  # redirect_to @url
+end
 
 end

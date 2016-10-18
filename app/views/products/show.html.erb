@@ -25,17 +25,21 @@
         </dl>
       </div>
     </div>
-    <div class="row" id="form">
-      <%= form_for @review, url: product_reviews_path(@product) do |f| %>
-        <%= f.text_area :description %>
-        <%= f.select :rating, [1,2,3,4,5]%>
-        <%= submit_tag "Submit" %>
-      <% end %>
-    </div>
-    <div class="row">
-      <% @reviews.each do |review| %>
-        <%= render partial: 'products/review', locals: {review: review} %>
-       <%end %>
-    </div>
+
+    <% if current_user %>
+      <div class="row" id="form">
+        <%= form_for @review, url: product_reviews_path(@product) do |f| %>
+          <%= f.text_area :description %>
+          <%= f.select :rating, [1,2,3,4,5]%>
+          <%= submit_tag "Submit" %>
+          <% end %>
+      </div>
+      <div class="row">
+        <% @reviews.each do |review| %>
+          <%= render partial: 'products/review', locals: {review: review} %>
+          <%end %>
+      </div>
+    <%end %>
+
   </article>
 </section>

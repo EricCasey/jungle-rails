@@ -16,30 +16,26 @@ RSpec.describe Product, type: :model do
 
     it 'should validate precence of :price' do
         expect(@product).to validate_presence_of :price_cents
-        puts @product.errors.size
-        puts @product.errors.full_messages
+        expect(@product.errors.size).to equal(3)
     end
     it 'should validate precence of :name' do
         expect(@product).to validate_presence_of :name
-        puts @product.errors.size
-        puts @product.errors.full_messages
+        expect(@product.errors.size).to equal(1)
     end
     it 'should validate precence of :category_id' do
         expect(@product).to validate_presence_of :category_id
-        puts @product.errors.size
-        puts @product.errors.full_messages
+        expect(@product.errors.size).to equal(1)
     end
     it 'should validate precence of :quantity' do
         expect(@product).to validate_presence_of :quantity
-        puts @product.errors.size
-        puts @product.errors.full_messages
+        expect(@product.errors.size).to equal(1)
     end
   end
 
     it 'new product should have no name' do
       @product = Product.new()
       expect(@product.name).to be_nil
-      puts @product.errors.size
-      puts @product.errors.full_messages
+      # puts @product.errors.size
+      # puts @product.errors.full_messages
     end
 end
