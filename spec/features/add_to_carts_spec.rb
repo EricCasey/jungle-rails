@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "ProductDetails", type: :feature, js: true  do
+RSpec.feature "AddToCarts", type: :feature, js: true do
 
   # SETUP
   before :each do
@@ -17,18 +17,17 @@ RSpec.feature "ProductDetails", type: :feature, js: true  do
     end
   end
 
-
-  scenario "They see the correct product after clicking on it from homepage" do
+  scenario "They see all products" do
     # ACT
     visit root_path
-    #click on product path
 
-    # puts @category.products.last.name
-    visit "/products/#{@category.products.last.id}"
+    # visit "/cart/add_item?product_id=#{@category.products.last.id}"
+    # page.find('btn btn-primary')
+    click_on @category.products.last.id
 
     # DEBUG / VERIFY
-    # save_screenshot
-    expect(page).to have_content @category.products.last.name
+    save_screenshot
+    expect(page).to have_content('My Cart (1)')
   end
 
 end
